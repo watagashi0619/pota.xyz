@@ -1,0 +1,179 @@
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap" rel="stylesheet">
+	<title>pota.xyz</title>
+	<style type="text/css">
+		body {
+			height: 100%;
+			width: 100%;
+			background-color: #111111;
+			color: #FFFFFF;
+			padding: 0;
+			margin: 0;
+			font-family: 'Londrina Outline', cursive;
+			font-size: 1.6rem;
+		}
+
+		.backgroundsquareinner {
+			width: 100%;
+			height: 400px;
+			position: absolute;
+			bottom: 0;
+		}
+
+		#contents {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			text-align: center;
+		}
+
+		#background {
+			position: absolute;
+			top: 0;
+			background-image: url("img/back.jpeg");
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			width: 100%;
+			height: 75%;
+			-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0)));
+			mask-image: gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.9)), to(rgba(0, 0, 0, 0)));
+		}
+
+		h1 {
+			font-size: 4.8rem;
+			text-align: center;
+			font-weight: 100;
+			margin-top: 0;
+		}
+
+		#backgroundsquare .backgroundsquareinner div {
+			opacity: 1;
+			-webkit-transform-origin: bottom;
+			-ms-transform-origin: bottom;
+			transform-origin: bottom;
+			-webkit-animation-name: FloatSquare;
+			animation-name: FloatSquare;
+			-webkit-animation-iteration-count: infinite;
+			animation-iteration-count: infinite;
+			-webkit-animation-timing-function: linear;
+			animation-timing-function: linear;
+			-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+			position: absolute;
+			display: block;
+		}
+
+		@-webkit-keyframes FloatSquare {
+			0% {
+				-webkit-transform: translateY(400px);
+				transform: translateY(400px);
+				opacity: 0;
+			}
+
+			30% {
+				-webkit-transform: translateY(280px);
+				transform: translateY(280px);
+				opacity: 1;
+			}
+
+			100% {
+				-webkit-transform: translateY(0px);
+				transform: translateY(0px);
+				opacity: 0;
+			}
+		}
+
+		@keyframes FloatSquare {
+			0% {
+				-webkit-transform: translateY(400px);
+				transform: translateY(400px);
+				opacity: 0;
+			}
+
+			30% {
+				-webkit-transform: translateY(280px);
+				transform: translateY(280px);
+				opacity: 1;
+			}
+
+			100% {
+				-webkit-transform: translateY(0px);
+				transform: translateY(0px);
+				opacity: 0;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<div id="contents">
+			<div>
+				<h1>pota.xyz</h1>
+				<p>is under construction...</p>
+			</div>
+		</div>
+		<div id="background"></div>
+		<div id="backgroundsquare">
+			<div class="backgroundsquareinner">
+			</div>
+		</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script>
+		var count = 0;
+		$(function () {
+			setInterval((function () {
+				var actionrandom = Math.floor(Math.random() * 10);
+				count++
+				if (actionrandom > 1) {
+					function draw() {
+						if (actionrandom > 1) {
+							var squaretext = "■"
+						}
+						if (actionrandom > 5) {
+							var squaretext = "□"
+						}
+						var size = (8 + (Math.floor(Math.random() * 20))) + "px";
+						var speed = (2 + (Math.floor(Math.random() * 10)) / 10);
+						var speeds = speed + "s";
+						var randompositW = Math.floor(Math.random() * 100) + "%";
+						var randompositH = Math.floor(Math.random() * 30);
+						var halfpositH = (15 + (randompositH / 2)) + "%";
+						var fullpositH = (15 + randompositH) + "%";
+						var randomlotate = Math.floor(Math.random() * 12);
+						var halflotate = (randomlotate / 2) + "deg";
+						var fulllotate = randomlotate + "deg";
+						var sqclassname = "square" + count;
+						var item = $("<div>", {
+							class: sqclassname,
+							text: squaretext
+						}).appendTo(".backgroundsquareinner");
+
+						item.css({
+							'left': randompositW,
+							'-webkit-animation-duration': speeds,
+							'animation-duration': speeds,
+							'font-size': size
+						});
+						setTimeout(function () {
+							$('.' + sqclassname).remove();
+						}, speed * 1000);
+					}
+					draw();
+				};
+			}), 200);
+		});
+	</script>
+</body>
+
+</html>
