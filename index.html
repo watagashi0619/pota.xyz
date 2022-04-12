@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
 	<title>pota.xyz</title>
 	<style type="text/css">
 		body {
@@ -15,8 +15,9 @@
 			color: #FFFFFF;
 			padding: 0;
 			margin: 0;
-			font-family: 'Londrina Outline', cursive;
+			font-family: 'Josefin Sans', sans-serif;
 			font-size: 1.6rem;
+			letter-spacing: 0.16rem;
 		}
 
 		.backgroundsquareinner {
@@ -24,6 +25,51 @@
 			height: 400px;
 			position: absolute;
 			bottom: 0;
+		}
+
+		footer {
+			width: 100%;
+			position: absolute;
+			bottom: 0;
+			margin-bottom: 0.8rem;
+			z-index: 99;
+		}
+
+		.footer-menu {
+			display: flex;
+		}
+
+		.menu-item {
+			width: calc(100%/3);
+			text-align: center;
+			letter-spacing: 0.16rem;
+		}
+
+		.menu-item+.menu-item {
+			border-left: 2px solid #FFFFFF;
+		}
+
+		a {
+			position: relative;
+			padding-bottom: 4px;
+			text-decoration: none;
+			color: #FFFFFF;
+		}
+
+		a::after {
+			background-color: #FFFFFF;
+			bottom: 0;
+			content: '';
+			display: block;
+			height: 2px;
+			left: 0;
+			position: absolute;
+			transition: .5s all;
+			width: 0;
+		}
+
+		a:hover::after {
+			width: 100%;
 		}
 
 		#contents {
@@ -49,6 +95,7 @@
 
 		h1 {
 			font-size: 4.8rem;
+			letter-spacing: 0.48rem;
 			text-align: center;
 			font-weight: 100;
 			margin-top: 0;
@@ -121,11 +168,21 @@
 				<p>is under construction...</p>
 			</div>
 		</div>
+
+		<footer>
+			<div class="footer-menu">
+				<div class="menu-item"><a href="https://twitter.com/_2pt/">Twitter</a></div>
+				<div class="menu-item"><a href="https://potaxyz.hatenablog.jp/">Blog</a></div>
+				<div class="menu-item"><a href="https://github.com/watagashi0619">GitHub</a></div>
+			</div>
+		</footer>
+
 		<div id="background"></div>
 		<div id="backgroundsquare">
 			<div class="backgroundsquareinner">
 			</div>
 		</div>
+
 	</div>
 
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
