@@ -1,0 +1,35 @@
+baseURL = 'http://pota.xyz/'
+languageCode = 'ja'
+defaultContentLanguage = 'ja'
+title = 'pota.xyz'
+theme = "ananke"
+resourceDir = "../resources"
+contentDir="content"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[[Menus.main]]
+  Name = "pota.xyz"
+  URL = "/"
+  weight = 1
+
+[[Menus.main]]
+  Name = "about"
+  URL = "/about"
+  weight = 1
+
+[[Menus.main]]
+  Name = "blog"
+  URL = "https://potaxyz.hatenablog.jp/"
+  weight = 1
+
+[[params.ananke_socials]]
+name = "twitter"
+url = "https://twitter.com/_2pt"
+
+[[params.ananke_socials]]
+name = "GitHub"
+url = "https://github.com/watagashi0619"
