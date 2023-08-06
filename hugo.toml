@@ -4,7 +4,6 @@ defaultContentLanguage = 'ja'
 title = 'pota.xyz'
 theme = "ananke"
 resourceDir = "../resources"
-contentDir="content"
 
 [markup]
   [markup.goldmark]
